@@ -1,5 +1,8 @@
 # time-span
 
+[![crates.io](https://img.shields.io/crates/v/time-span.svg)](https://crates.io/crates/time-span)
+[![GitHub Actions](https://github.com/paulzhang5511/time-span/actions/workflows/build_push.yml/badge.svg)](https://github.com/paulzhang5511/time-span/actions)
+
 一个基于 RAII 的简单 Rust 时间测量库。
 
 ## 功能特性

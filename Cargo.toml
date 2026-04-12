@@ -3,12 +3,12 @@ name = "time-span"
 version = "0.1.0"
 edition = "2024"
 description = "A simple RAII-based time measurement crate"
-license = "MIT OR Apache-2.0"
-repository = "https://github.com/yourusername/time-span"
-keywords = ["time", "measurement", "timer", "performance", "scope"]
+license = "MIT"
+repository = "https://github.com/paulzhang5511/time-span"
+keywords = ["time", "measurement", "timer", "performance", "span"]
 categories = ["development-tools::profiling", "development-tools::debugging"]
 readme = "README.md"
-authors = ["Your Name <your.email@example.com>"]
+authors = ["Paul Zhang"]
 
 [dependencies]
 log = "0.4"
