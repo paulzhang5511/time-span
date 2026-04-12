@@ -1,0 +1,14 @@
+[package]
+name = "time-span"
+version = "0.1.0"
+edition = "2024"
+description = "A simple RAII-based time measurement crate"
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/yourusername/time-span"
+keywords = ["time", "measurement", "timer", "performance", "scope"]
+categories = ["development-tools::profiling", "development-tools::debugging"]
+readme = "README.md"
+authors = ["Your Name <your.email@example.com>"]
+
+[dependencies]
+log = "0.4"
