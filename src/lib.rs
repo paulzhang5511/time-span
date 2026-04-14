@@ -14,15 +14,15 @@ use std::time::Instant;
 /// } // _guard 离开作用域，自动打印耗时
 /// ```
 pub struct TimeSpan {
-    name: &'static str,
+    name: String,
     start: Instant,
 }
 
 impl TimeSpan {
     /// 创建并启动一个新的计时器。
-    pub fn new(name: &'static str) -> Self {
+    pub fn new<S: Into<String>>(name: S) -> Self {
         Self {
-            name,
+            name: name.into(),
             start: Instant::now(),
         }
     }
@@ -164,5 +164,45 @@ mod tests {
         });
         assert_eq!(result, 1);
         assert_eq!(count, 1);
+    }
+
+    #[test]
+    fn test_time_span_with_string() {
+        let name = String::from("dynamic_string_test");
+        let _span = TimeSpan::new(name);
+    }
+
+    #[test]
+    fn test_time_span_with_format() {
+        let id = 42;
+        let name = format!("task_{}", id);
+        let _span = TimeSpan::new(name);
+    }
+
+    #[test]
+    fn test_time_span_with_str_ref() {
+        let s = "string_reference";
+        let _span = TimeSpan::new(s);
+    }
+
+    #[test]
+    fn test_measure_time_with_string() {
+        let name = String::from("measure_with_string");
+        let result = measure_time(&name, || "test_result");
+        assert_eq!(result, "test_result");
+    }
+
+    #[test]
+    fn test_measure_time_with_format() {
+        let id = 123;
+        let name = format!("measure_task_{}", id);
+        let result = measure_time(&name, || 42);
+        assert_eq!(result, 42);
+    }
+
+    #[test]
+    fn test_macro_with_dynamic_name() {
+        let name = String::from("macro_dynamic");
+        time_span!(name.as_str());
     }
 }
